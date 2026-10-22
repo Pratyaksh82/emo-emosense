@@ -1,0 +1,1093 @@
+/* ==========================================================================
+   EmoSense + Chetana Integration Styling
+   Faithful replication of EmoSense AI (emo-girl) HSL design system:
+   Background: hsl(232, 35%, 8%)
+   Card: hsl(232, 32%, 11%)
+   Primary: hsl(252, 83%, 70%)
+   Accent: hsl(200, 90%, 65%)
+   Border: hsl(232, 25%, 20%)
+   ========================================================================== */
+
+.emosense-app-root {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(232, 35%, 8%);
+  color: hsl(230, 30%, 94%);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Global Top Navigation Bar */
+.emosense-top-navbar {
+  height: 52px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px 0 16px;
+  background: hsla(232, 32%, 11%, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid hsla(232, 25%, 20%, 0.6);
+  z-index: 50;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.nav-left-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-telemetry-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: hsla(232, 28%, 16%, 0.7);
+  border: 1px solid hsla(232, 25%, 22%, 0.6);
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.dot-online {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+}
+
+/* Background Gradients */
+.emosense-app-root::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at top left, hsla(252, 60%, 18%, 0.5) 0%, transparent 60%),
+    radial-gradient(ellipse at bottom right, hsla(200, 70%, 18%, 0.4) 0%, transparent 60%),
+    linear-gradient(180deg, hsl(232, 35%, 8%) 0%, hsl(232, 38%, 6%) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ==========================================================================
+   Desktop Left Sidebar
+   ========================================================================== */
+.emosense-sidebar {
+  width: 320px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: hsla(232, 32%, 11%, 0.45);
+  backdrop-filter: blur(20px);
+  border-right: 1px solid hsla(232, 25%, 20%, 0.6);
+  z-index: 20;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+.emosense-sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+.emosense-sidebar::-webkit-scrollbar-thumb {
+  background: hsla(230, 15%, 65%, 0.2);
+  border-radius: 4px;
+}
+
+.sidebar-brand-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid hsla(232, 25%, 20%, 0.5);
+}
+
+.brand-badge-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, hsl(252, 83%, 70%) 0%, hsl(200, 90%, 65%) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 0 20px hsla(252, 83%, 70%, 0.4);
+}
+
+.brand-title-group h1 {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  background: linear-gradient(135deg, #ffffff 0%, hsl(252, 83%, 70%) 60%, hsl(200, 90%, 65%) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brand-title-group p {
+  font-size: 11px;
+  color: hsl(230, 15%, 65%);
+}
+
+.btn-new-chat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: hsla(232, 28%, 16%, 0.8);
+  border: 1px solid hsla(232, 25%, 22%, 0.8);
+  color: #f8fafc;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-new-chat:hover {
+  background: hsla(252, 83%, 70%, 0.15);
+  border-color: hsla(252, 83%, 70%, 0.4);
+  color: #ffffff;
+}
+
+/* Conversation list */
+.conversation-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow-y: auto;
+}
+
+.chat-item-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  font-size: 12px;
+  color: hsl(230, 15%, 75%);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.chat-item-pill:hover {
+  background: hsla(232, 28%, 16%, 0.6);
+  color: #ffffff;
+}
+
+.chat-item-pill.active {
+  background: hsla(252, 83%, 70%, 0.12);
+  border-color: hsla(252, 83%, 70%, 0.35);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Sidebar Mood Dashboard Card */
+.sidebar-mood-card {
+  background: hsla(232, 32%, 11%, 0.7);
+  border: 1px solid hsla(232, 25%, 20%, 0.7);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+.mood-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: hsl(230, 15%, 80%);
+}
+
+.mood-radar-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.radar-bar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10.5px;
+}
+
+.radar-track {
+  width: 110px;
+  height: 6px;
+  border-radius: 3px;
+  background: hsla(232, 25%, 18%, 1);
+  overflow: hidden;
+}
+
+.radar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+/* Sidebar Action Buttons */
+.sidebar-tools-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.sidebar-btn-tool {
+  flex: 1;
+  min-width: 120px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  background: hsla(232, 28%, 16%, 0.6);
+  border: 1px solid hsla(232, 25%, 20%, 0.7);
+  font-size: 11px;
+  color: hsl(230, 15%, 75%);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sidebar-btn-tool:hover {
+  background: hsla(232, 28%, 20%, 0.9);
+  color: #ffffff;
+}
+
+.btn-panic-sos {
+  background: hsla(0, 75%, 60%, 0.15);
+  border-color: hsla(0, 75%, 60%, 0.4);
+  color: #fda4af;
+}
+
+.btn-panic-sos:hover {
+  background: hsla(0, 75%, 60%, 0.25);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   Main Chat Workspace
+   ========================================================================== */
+.emosense-main-chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.emosense-top-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background: hsla(232, 32%, 11%, 0.5);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid hsla(232, 25%, 20%, 0.5);
+}
+
+.nav-left-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-telemetry-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: hsla(232, 28%, 16%, 0.7);
+  border: 1px solid hsla(232, 25%, 22%, 0.8);
+  font-size: 11px;
+  color: hsl(230, 15%, 75%);
+}
+
+.nav-telemetry-badge strong {
+  color: hsl(200, 90%, 65%);
+  font-family: monospace;
+}
+
+.dot-online {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+}
+
+/* Scrollable Chat Feed */
+.chat-scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 24px;
+}
+
+.chat-scroll-area::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-scroll-area::-webkit-scrollbar-thumb {
+  background: hsla(230, 15%, 65%, 0.2);
+  border-radius: 4px;
+}
+
+.chat-centered-column {
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* EmoSense Message Bubbles */
+.chat-bubble-container {
+  display: flex;
+  gap: 12px;
+  max-width: 85%;
+  animation: floatUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes floatUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.chat-bubble-container.user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.chat-bubble-container.assistant {
+  align-self: flex-start;
+}
+
+.bubble-avatar-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid hsla(232, 25%, 25%, 0.8);
+}
+
+.bubble-avatar-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bubble-content-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bubble-text-box {
+  padding: 12px 16px;
+  border-radius: 16px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: hsl(230, 30%, 94%);
+}
+
+.chat-bubble-container.assistant .bubble-text-box {
+  background: hsla(232, 28%, 14%, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid hsla(232, 25%, 20%, 0.7);
+  border-top-left-radius: 4px;
+  box-shadow: 0 4px 20px hsla(232, 50%, 4%, 0.4);
+}
+
+.chat-bubble-container.user .bubble-text-box {
+  background: linear-gradient(135deg, hsl(252, 83%, 65%) 0%, hsl(262, 90%, 70%) 100%);
+  color: #ffffff;
+  border: 1px solid hsla(255, 255, 255, 0.2);
+  border-top-right-radius: 4px;
+  box-shadow: 0 6px 24px hsla(252, 83%, 70%, 0.35);
+}
+
+.bubble-meta-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10.5px;
+  color: hsl(230, 15%, 60%);
+  padding: 0 4px;
+}
+
+.chat-bubble-container.user .bubble-meta-info {
+  justify-content: flex-end;
+}
+
+.bubble-emotion-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.chip-tense { background: hsla(38, 90%, 60%, 0.15); color: hsl(38, 90%, 65%); border: 1px solid hsla(38, 90%, 60%, 0.35); }
+.chip-sad { background: hsla(252, 83%, 70%, 0.15); color: hsl(252, 83%, 75%); border: 1px solid hsla(252, 83%, 70%, 0.35); }
+.chip-happy { background: hsla(152, 60%, 55%, 0.15); color: hsl(152, 60%, 60%); border: 1px solid hsla(152, 60%, 55%, 0.35); }
+.chip-calm { background: hsla(200, 90%, 65%, 0.15); color: hsl(200, 90%, 65%); border: 1px solid hsla(200, 90%, 65%, 0.35); }
+.chip-neutral { background: hsla(232, 22%, 18%, 0.8); color: hsl(230, 15%, 70%); border: 1px solid hsla(232, 25%, 22%, 0.8); }
+
+/* EmoSense Thinking Pulse */
+.typing-pulse-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 14px;
+  background: hsla(232, 28%, 14%, 0.7);
+  border: 1px solid hsla(232, 25%, 20%, 0.6);
+  font-size: 11.5px;
+  color: hsl(230, 15%, 65%);
+  width: fit-content;
+}
+
+.dots-loader {
+  display: flex;
+  gap: 3px;
+}
+.dots-loader span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: hsl(252, 83%, 70%);
+  animation: pulseDot 1.2s infinite ease-in-out;
+}
+.dots-loader span:nth-child(2) { animation-delay: 0.2s; }
+.dots-loader span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* ==========================================================================
+   Bottom EmoSense Features Bar & Chat Input
+   ========================================================================== */
+.emosense-bottom-tray {
+  padding: 12px 24px 18px 24px;
+  background: hsla(232, 32%, 11%, 0.65);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid hsla(232, 25%, 20%, 0.5);
+}
+
+.tray-centered-column {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.features-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.emosense-feature-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: hsla(232, 28%, 16%, 0.7);
+  border: 1px solid hsla(232, 25%, 22%, 0.8);
+  font-size: 11px;
+  font-weight: 500;
+  color: hsl(230, 15%, 80%);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.emosense-feature-chip:hover {
+  background: hsla(252, 83%, 70%, 0.15);
+  border-color: hsla(252, 83%, 70%, 0.4);
+  color: #ffffff;
+}
+
+.emosense-feature-chip.active {
+  background: hsla(252, 83%, 70%, 0.2);
+  border-color: hsla(252, 83%, 70%, 0.6);
+  color: #ffffff;
+  box-shadow: 0 0 12px hsla(252, 83%, 70%, 0.3);
+}
+
+/* Chat Input Bar */
+.chat-composer-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 16px;
+  background: hsla(232, 32%, 11%, 0.85);
+  border: 1px solid hsla(232, 25%, 22%, 0.8);
+  box-shadow: 0 4px 20px hsla(232, 50%, 4%, 0.5);
+}
+
+.chat-composer-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 13.5px;
+  color: #ffffff;
+  padding: 6px 4px;
+}
+
+.chat-composer-box input::placeholder {
+  color: hsl(230, 15%, 50%);
+}
+
+.btn-send-purple {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, hsl(252, 83%, 70%) 0%, hsl(262, 90%, 70%) 100%);
+  border: 1px solid hsla(255, 255, 255, 0.2);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-send-purple:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 16px hsla(252, 83%, 70%, 0.5);
+}
+
+.btn-send-purple:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ==========================================================================
+   Antigravity 3-Part Modular Architecture
+   Part 1 (Left): Graphs, Trajectory, Circumplex & Clinical Intelligence
+   Part 2 (Middle): Chetana Living 60 FPS Center Stage
+   Part 3 (Right): Conversational Chat, Voice Input & Stepped Care Bridge
+   ========================================================================== */
+.emosense-3part-workspace {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: calc(100vh - 52px);
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* PART 1: Left Telemetry & Insights Column */
+.emosense-left-panel {
+  width: 320px;
+  min-width: 290px;
+  height: 100%;
+  overflow-y: auto;
+  padding: 16px;
+  background: hsla(232, 32%, 11%, 0.45);
+  backdrop-filter: blur(20px);
+  border-right: 1px solid hsla(232, 25%, 20%, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex-shrink: 0;
+  z-index: 15;
+}
+
+.emosense-left-panel::-webkit-scrollbar {
+  width: 4px;
+}
+.emosense-left-panel::-webkit-scrollbar-thumb {
+  background: hsla(230, 15%, 65%, 0.2);
+  border-radius: 4px;
+}
+
+.panel-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.3px;
+}
+
+.panel-export-group {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-export-pdf {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, hsl(252, 83%, 70%) 0%, hsl(240, 80%, 65%) 100%);
+  border: 1px solid hsla(255, 255, 255, 0.25);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px hsla(252, 83%, 70%, 0.35);
+  transition: all 0.2s ease;
+}
+
+.btn-export-pdf:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px hsla(252, 83%, 70%, 0.5);
+}
+
+.btn-summary-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: hsla(232, 28%, 18%, 0.8);
+  border: 1px solid hsla(232, 25%, 26%, 0.9);
+  color: #f1f5f9;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-summary-modal:hover {
+  background: hsla(232, 28%, 24%, 0.9);
+  border-color: hsla(252, 83%, 70%, 0.4);
+}
+
+/* PART 2: Center Stage Column (Chetana Avatar) */
+.emosense-center-stage {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(circle at 50% 35%, rgba(30, 27, 75, 0.45) 0%, rgba(7, 10, 18, 0.96) 80%);
+  position: relative;
+  overflow: hidden;
+  border-right: 1px solid hsla(232, 25%, 20%, 0.6);
+  z-index: 12;
+}
+
+.stage-header-bar {
+  padding: 8px 16px;
+  background: hsla(232, 32%, 11%, 0.6);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid hsla(232, 25%, 20%, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  z-index: 20;
+}
+
+.stage-avatar-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.banner-avatar-thumb {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  max-width: 28px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1.5px solid hsl(252, 83%, 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.banner-avatar-thumb img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 50%;
+}
+
+.stage-avatar-title .name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.stage-avatar-title .sub {
+  font-size: 10px;
+  color: #94a3b8;
+}
+
+.stage-select-pill {
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: hsla(232, 28%, 18%, 0.85);
+  border: 1px solid hsla(232, 25%, 28%, 0.8);
+  color: #f1f5f9;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+}
+
+.stage-select-pill:focus {
+  border-color: hsl(252, 83%, 70%);
+}
+
+.stage-viewport-box {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: transparent;
+}
+
+.stage-bottom-bar {
+  padding: 8px 14px;
+  background: hsla(232, 32%, 11%, 0.7);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid hsla(232, 25%, 20%, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  z-index: 20;
+}
+
+.acting-chips-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  overflow-x: auto;
+}
+
+.btn-acting-chip {
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: hsla(232, 28%, 18%, 0.75);
+  border: 1px solid hsla(232, 25%, 26%, 0.8);
+  color: #e2e8f0;
+  font-size: 10.5px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.btn-acting-chip:hover {
+  background: hsla(252, 83%, 70%, 0.2);
+  border-color: hsla(252, 83%, 70%, 0.5);
+  color: #ffffff;
+}
+
+/* Standby Empty Stage Card */
+.stage-standby-card {
+  margin: auto;
+  padding: 24px 32px;
+  background: hsla(232, 32%, 11%, 0.75);
+  border: 1px solid hsla(232, 25%, 24%, 0.9);
+  border-radius: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  max-width: 360px;
+}
+
+/* PART 3: Right Chat Column */
+.emosense-right-chat {
+  width: 410px;
+  min-width: 360px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: hsla(232, 35%, 8%, 0.9);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 15;
+}
+
+.chat-column-header {
+  padding: 10px 16px;
+  background: hsla(232, 32%, 11%, 0.6);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid hsla(232, 25%, 20%, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chat-scroll-stream {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chat-scroll-stream::-webkit-scrollbar {
+  width: 5px;
+}
+.chat-scroll-stream::-webkit-scrollbar-thumb {
+  background: hsla(230, 15%, 65%, 0.2);
+  border-radius: 4px;
+}
+
+.chat-footer-composer {
+  padding: 10px 14px;
+  background: hsla(232, 32%, 11%, 0.75);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid hsla(232, 25%, 20%, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ==========================================================================
+   PWA INSTALL BUTTON & MOBILE SEGMENTED VIEW SWITCHER
+   ========================================================================== */
+
+.top-navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-install-pwa {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 9px;
+  background: hsla(252, 83%, 70%, 0.16);
+  border: 1px solid hsla(252, 83%, 70%, 0.45);
+  color: #e0e7ff;
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-install-pwa:hover {
+  background: hsla(252, 83%, 70%, 0.3);
+  border-color: hsla(252, 83%, 70%, 0.7);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* Mobile Segmented Nav Bar (Hidden on desktop) */
+.emosense-mobile-nav-bar {
+  display: none;
+}
+
+/* ==========================================================================
+   MOBILE & TABLET RESPONSIVE SYSTEM (<= 900px)
+   Clear, uncrowded, and easy to navigate with 44px tap targets
+   ========================================================================== */
+@media (max-width: 900px) {
+  /* Show Mobile Segmented View Switcher */
+  .emosense-mobile-nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: hsla(232, 35%, 10%, 0.95);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid hsla(232, 25%, 20%, 0.8);
+    padding: 6px 10px;
+    gap: 6px;
+    position: relative;
+    z-index: 50;
+    flex-shrink: 0;
+  }
+
+  .mobile-nav-tab {
+    flex: 1;
+    height: 44px; /* Exact 44px accessible touch target */
+    min-height: 44px;
+    border-radius: 10px;
+    background: hsla(232, 28%, 15%, 0.6);
+    border: 1px solid hsla(232, 25%, 22%, 0.8);
+    color: #94a3b8;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-nav-tab:active {
+    transform: scale(0.98);
+  }
+
+  .mobile-nav-tab.active {
+    background: hsla(252, 83%, 70%, 0.25);
+    border-color: hsla(252, 83%, 70%, 0.6);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(127, 119, 221, 0.2);
+  }
+
+  /* Compact Navbar */
+  .emosense-top-navbar {
+    padding: 0 10px;
+    height: 50px;
+  }
+
+  .brand-title h1 {
+    font-size: 13px;
+  }
+
+  .hide-on-mobile-sm {
+    display: none !important;
+  }
+
+  .hide-on-mobile-xs {
+    display: none !important;
+  }
+
+  .top-navbar-actions {
+    gap: 6px;
+  }
+
+  .top-navbar-actions button {
+    padding: 6px 10px;
+    font-size: 11px;
+    height: 36px;
+  }
+
+  .nav-telemetry-badge {
+    padding: 3px 6px;
+    font-size: 9.5px;
+  }
+
+  /* Adaptive 3-Part Workspace Layout on Mobile */
+  .emosense-3part-workspace {
+    flex-direction: column;
+    height: calc(100vh - 106px);
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* Hide/Show panels based on data-mobile-active */
+  .emosense-3part-workspace[data-mobile-active="avatar"] .emosense-center-stage {
+    display: flex !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 1 !important;
+    border-right: none;
+  }
+  .emosense-3part-workspace[data-mobile-active="avatar"] .emosense-left-panel,
+  .emosense-3part-workspace[data-mobile-active="avatar"] .emosense-right-chat {
+    display: none !important;
+  }
+
+  .emosense-3part-workspace[data-mobile-active="chat"] .emosense-right-chat {
+    display: flex !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    flex: 1 !important;
+  }
+  .emosense-3part-workspace[data-mobile-active="chat"] .emosense-left-panel,
+  .emosense-3part-workspace[data-mobile-active="chat"] .emosense-center-stage {
+    display: none !important;
+  }
+
+  .emosense-3part-workspace[data-mobile-active="telemetry"] .emosense-left-panel {
+    display: flex !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    flex: 1 !important;
+    overflow-y: auto !important;
+    border-right: none;
+  }
+  .emosense-3part-workspace[data-mobile-active="telemetry"] .emosense-center-stage,
+  .emosense-3part-workspace[data-mobile-active="telemetry"] .emosense-right-chat {
+    display: none !important;
+  }
+
+  /* Mobile Touch Targets & Controls */
+  .chat-composer-row {
+    gap: 8px;
+  }
+
+  .chat-composer-row input {
+    height: 44px;
+    min-height: 44px;
+    font-size: 13px;
+    padding: 0 14px;
+  }
+
+  .btn-send-msg {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .btn-acting-chip {
+    padding: 6px 12px;
+    min-height: 38px;
+    font-size: 11px;
+  }
+
+  .stage-select-pill {
+    min-height: 34px;
+    font-size: 11px;
+  }
+}
+

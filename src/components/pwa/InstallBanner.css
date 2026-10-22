@@ -1,0 +1,241 @@
+/* ==========================================================================
+   InstallBanner — Calm PWA Promotion & iOS Guide CSS
+   Dark theme (#060911, soft purple #7F77DD accent)
+   Mobile-first, trauma-informed, 44px tap targets, prefers-reduced-motion
+   ========================================================================== */
+
+.pwa-banner-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 440px;
+  z-index: 99999;
+  pointer-events: auto;
+  animation: pwaSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pwaSlideUp {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.pwa-card {
+  position: relative;
+  background: #0b0f19;
+  background: linear-gradient(145deg, #101626 0%, #060911 100%);
+  border: 1px solid rgba(127, 119, 221, 0.32);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75), 0 0 30px rgba(127, 119, 221, 0.15);
+  border-radius: 18px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  color: #f1f5f9;
+}
+
+.pwa-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pwa-close-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.pwa-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.pwa-app-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #4f46e5 0%, #7F77DD 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 800;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(127, 119, 221, 0.4);
+  flex-shrink: 0;
+}
+
+.pwa-card-text {
+  flex: 1;
+  min-width: 0;
+  padding-right: 20px;
+}
+
+.pwa-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.2px;
+  margin: 0;
+}
+
+.pwa-sub {
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 4px 0 0;
+  line-height: 1.4;
+}
+
+.pwa-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pwa-btn {
+  flex: 1;
+  height: 44px; /* Exact 44px tap target specified in prompt */
+  min-height: 44px;
+  border-radius: 12px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  border: 1px solid transparent;
+}
+
+.pwa-btn-primary {
+  background: #7F77DD;
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(127, 119, 221, 0.35);
+}
+
+.pwa-btn-primary:hover {
+  background: #6e65d8;
+  box-shadow: 0 6px 20px rgba(127, 119, 221, 0.45);
+  transform: translateY(-1px);
+}
+
+.pwa-btn-ghost {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #cbd5e1;
+}
+
+.pwa-btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   iOS STEP GUIDE STYLING
+   ========================================================================== */
+.ios-steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.ios-step-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.step-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(127, 119, 221, 0.25);
+  color: #a5b4fc;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.step-icon {
+  margin-left: auto;
+}
+
+.ios-bottom-indicator {
+  display: flex;
+  justify-content: center;
+  margin-top: -4px;
+}
+
+.ios-bouncing-arrow {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(127, 119, 221, 0.2);
+  color: #a5b4fc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: iosBounce 1.5s infinite ease-in-out;
+}
+
+@keyframes iosBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+/* ==========================================================================
+   ACCESSIBILITY: PREFERS REDUCED MOTION
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .pwa-banner-container {
+    animation: none;
+  }
+  .ios-bouncing-arrow {
+    animation: none;
+  }
+  .pwa-btn-primary:hover {
+    transform: none;
+  }
+}
+
+/* Mobile Safe Areas (iPhone home bar, etc.) */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .pwa-banner-container {
+    bottom: calc(16px + env(safe-area-inset-bottom));
+  }
+}

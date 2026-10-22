@@ -1,0 +1,240 @@
+/* ==========================================================================
+   chetana 2D Humanoid Avatar — Living Anime Motion Engine
+   Continuous 60 FPS organic respiration, 3D Lissajous head sway,
+   authentic anime eyelid blinking, IK arm dynamics, and Oculus viseme lip sync.
+   ========================================================================== */
+
+.chetana-avatar-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  overflow: hidden;
+  perspective: 1100px; /* 3D perspective depth for genuine anime head turning */
+}
+
+/* Dynamic Ambient Mood Aura Glow */
+.chetana-aura-glow {
+  position: absolute;
+  top: 12%;
+  left: 18%;
+  width: 64%;
+  height: 64%;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.65;
+  pointer-events: none;
+  z-index: 1;
+  animation: auraPulse 5.5s ease-in-out infinite;
+  transition: background 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes auraPulse {
+  0%, 100% {
+    transform: scale(0.92);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.8;
+  }
+}
+
+/* Grounded Stage: Desk and Body Base are Anchored */
+.chetana-stage-grounded {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 840px;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+}
+
+/* ==========================================================================
+   CONTINUOUS LIVING MOTION LAYERS (60 FPS JS DRIVEN)
+   ========================================================================== */
+
+/* 1. Continuous Organic Respiration & Torso Layer */
+.chetana-living-breathing-layer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 92%; /* Anchored to desk / waist baseline */
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+/* 2. Bowing / Gesture Transition Layer */
+.chetana-gesture-motion-layer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 80%;
+  will-change: transform;
+  transform-style: preserve-3d;
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.25, 1);
+}
+
+/* 3. Continuous 3D Neck-Pivot Head & Face Articulator */
+.chetana-living-head-neck {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 48%; /* True anatomical neck pivot */
+  will-change: transform;
+  transform-style: preserve-3d;
+  transition: transform 0.05s linear; /* Smooth micro-interpolation between 60fps frames */
+}
+
+/* Master Pose Artwork Images (Smooth Cross-Fade) */
+.chetana-pose-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+  opacity: 0;
+  transform: scale(0.995);
+  transition: opacity 0.38s cubic-bezier(0.22, 1, 0.36, 1), transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  filter: drop-shadow(0 22px 40px rgba(0, 0, 0, 0.55));
+}
+
+.chetana-pose-img.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 3;
+}
+
+/* ==========================================================================
+   AUTHENTIC ANIME EYELID BLINKING (ZERO BLACK BARS)
+   Uses high-res closed eyelid illustration of chetana.
+   Seamlessly overlays the eye socket region with realistic lash curve.
+   ========================================================================== */
+.chetana-closed-eye-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+  /* Mask precisely encompassing the upper face eye zone */
+  clip-path: polygon(36% 22%, 64% 22%, 64% 34%, 36% 34%);
+  opacity: 0;
+  transition: opacity 0.06s ease-in-out;
+  will-change: opacity;
+}
+
+.chetana-closed-eye-mask.blinking-active {
+  opacity: 1;
+}
+
+.chetana-blink-artwork {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+/* ==========================================================================
+   LIVING IRIS GAZE & SACCADE TRACKING
+   Smooth glide inside the eye aperture
+   ========================================================================== */
+.chetana-iris-gaze-zone {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 6;
+  pointer-events: none;
+}
+
+.chetana-iris-glider {
+  position: absolute;
+  top: 28.6%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 25%, rgba(245, 158, 11, 0.45) 75%, transparent 100%);
+  mix-blend-mode: soft-light;
+  transition: transform 0.08s cubic-bezier(0.1, 0.9, 0.2, 1);
+  box-shadow: 0 0 6px rgba(245, 158, 11, 0.3);
+}
+
+.chetana-iris-glider.left {
+  left: 45.4%;
+}
+
+.chetana-iris-glider.right {
+  left: 54.6%;
+}
+
+/* ==========================================================================
+   REAL-TIME OCULUS VISEME LIP-SYNC MOUTH LAYER
+   Scales, puckers, and articulates in sync with speech frequencies
+   ========================================================================== */
+.chetana-viseme-mouth-container {
+  position: absolute;
+  top: 36.8%;
+  left: 48.2%;
+  width: 38px;
+  height: 22px;
+  transform: translate(-50%, -50%);
+  z-index: 8;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.12s ease;
+}
+
+.chetana-viseme-oral-cavity {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #3b0712;
+  border-radius: 50% 50% 60% 60%;
+  border: 1.5px solid #d9777f;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6), 0 0 4px rgba(217, 119, 127, 0.4);
+  overflow: hidden;
+  transition: transform 0.06s linear, border-radius 0.08s ease;
+  will-change: transform;
+}
+
+/* Teeth highlight inside mouth */
+.chetana-viseme-teeth {
+  position: absolute;
+  top: 0;
+  left: 15%;
+  width: 70%;
+  height: 35%;
+  background: #f8fafc;
+  border-radius: 0 0 3px 3px;
+  opacity: 0.9;
+}
+
+/* Tongue nuance inside mouth */
+.chetana-viseme-tongue {
+  position: absolute;
+  bottom: -1px;
+  left: 20%;
+  width: 60%;
+  height: 45%;
+  background: #f43f5e;
+  border-radius: 50% 50% 0 0;
+  opacity: 0.85;
+}

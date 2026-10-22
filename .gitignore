@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Python Virtual Environment
+.venv/
+__pycache__/
+*.py[cod]
+
+# Environment Secrets (Crucial: Never commit API keys!)
+.env
+.env.local
+.env.*.local
+
+# Production Build Output
+dist/
+dist-ssr/
+*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor & System Files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Heavy Demo Video Files & Zip Archives
+*.mp4
+*.zip
+*.raw
+*.pdf
+drone_432.raw
+WhatsApp*.mpeg
+scratch/
+
+# Loose root test audio benchmarks & exploratory recordings (production assets live in public/audio)
+/*.mp3
+/voice_samples*/
+/concept_images/
+/package_test_stage/
+/gpt voice/
+

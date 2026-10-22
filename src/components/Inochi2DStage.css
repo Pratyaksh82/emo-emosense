@@ -1,0 +1,343 @@
+/* ==========================================================================
+   Inochi2D Living Puppet Stage — Decoupled Multi-Node Rig Architecture
+   Layer 0: Static Environment & Executive Chair (100% Frozen, 0% Motion)
+   Layer 1: Decoupled Anime Puppet Rig
+            ├── Node A: Torso & Shoulders (Diaphragm elevation only, zero head scale)
+            ├── Node B: 3D Head & Neck (Cervical axis 50% 50% pivot, Yaw/Pitch/Roll)
+            │   ├── Moving Amber Pupils (Gaze tracking within eye sockets)
+            │   ├── Eyelid Blink (Autonomous 115ms snap & ease)
+            │   ├── Secondary Pendulum Jhumkas (Inertia & gravity swing)
+            │   └── 5-Viseme Anime Mouth Matrix with Jaw Drop Offset
+   Layer 2: Grounded Foreground Desk & Brass Nameplate (100% Static)
+   ========================================================================== */
+
+.inochi-stage-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  overflow: hidden;
+  perspective: 1200px;
+}
+
+/* Ambient Emotion Glow Aura */
+.inochi-ambient-aura {
+  position: absolute;
+  top: 10%;
+  left: 15%;
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  filter: blur(85px);
+  opacity: 0.65;
+  pointer-events: none;
+  z-index: 1;
+  animation: inochiAuraPulse 6s ease-in-out infinite;
+  transition: background 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes inochiAuraPulse {
+  0%, 100% {
+    transform: scale(0.94);
+    opacity: 0.52;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 0.78;
+  }
+}
+
+/* Viewport Master Box (4:3 Aspect Matching 1200x900 Canvas) */
+.inochi-stage-viewport {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 880px;
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  background: #080c14;
+  transform-style: preserve-3d;
+}
+
+/* Common Full-Coverage Image */
+.inochi-img-full {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  display: block;
+}
+
+/* ==========================================================================
+   LAYER 0: STATIC ENVIRONMENT & EXECUTIVE CHAIR (100% FROZEN, NEVER MOVES)
+   ========================================================================== */
+.inochi-layer-bg-environment {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   LAYER 1: DECOUPLED ANIME RIG ROOT
+   ========================================================================== */
+.inochi-character-rig-root {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  transform-style: preserve-3d;
+}
+
+/* NODE A: TORSO & SHOULDERS (DIAPHRAGM RESPIRATION ONLY)
+   Anchored at waist behind desk. HEAD NEVER SCALES! */
+.inochi-node-torso {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 88%;
+  will-change: transform;
+  transition: transform 0.04s linear;
+}
+
+/* NODE B: 3D HEAD & NECK KINEMATICS
+   Pivots at cervical vertebra (50% 50%). Turns, tilts, and nods independently! */
+.inochi-node-head {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 50%;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.04s linear;
+}
+
+/* Sub-Node: Moving Amber Pupils (Eye Gaze Tracking) */
+.inochi-subnode-pupils {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+  transition: transform 0.05s linear;
+}
+
+/* Sub-Node: Autonomous Eyelid Blinking */
+.inochi-subnode-blink {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.05s ease-in-out;
+  will-change: opacity;
+}
+
+.inochi-subnode-blink.active {
+  opacity: 1;
+}
+
+/* Sub-Nodes: Secondary Pendulum Golden Jhumka Earrings
+   Left earlobe: 44.7% 41.7%
+   Right earlobe: 58.8% 41.7% */
+.inochi-subnode-jhumka-l {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: 44.7% 41.7%;
+  will-change: transform;
+}
+
+.inochi-subnode-jhumka-r {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: 58.8% 41.7%;
+  will-change: transform;
+}
+
+/* Sub-Node: Mouth Group with Lower Jaw Offset */
+.inochi-subnode-mouth-group {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+  transition: transform 0.05s ease-out;
+}
+
+/* Sub-Nodes: Authentic 5-Viseme Anime Mouth Layers */
+.inochi-subnode-viseme {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.06s ease-out;
+  will-change: opacity;
+}
+
+.inochi-subnode-viseme.active {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   LAYER 2: GROUNDED FOREGROUND DESK & NAMEPLATE (100% STATIC, ZERO MOVEMENT)
+   ========================================================================== */
+.inochi-layer-fg-desk {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   FLOATING TELEMETRY HUD
+   ========================================================================== */
+.inochi-telemetry-hud {
+  position: absolute;
+  bottom: 12px;
+  left: 14px;
+  right: 14px;
+  background: rgba(10, 15, 29, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 8px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #e2e8f0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
+  z-index: 10;
+  pointer-events: auto;
+}
+
+/* ==========================================================================
+   EXPRESSIVE HEAD MOTIONS QUICK ACTION BAR
+   ========================================================================== */
+.head-motion-quick-bar {
+  position: absolute;
+  top: 78px;
+  left: 28px;
+  transform: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 20px rgba(192, 132, 252, 0.2);
+  border-radius: 30px;
+  padding: 6px 14px;
+  z-index: 20;
+  max-width: calc(100% - 56px);
+  overflow-x: auto;
+}
+
+
+.motion-bar-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #f1f5f9;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+
+.motion-bar-buttons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-quick-motion {
+  background: rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-quick-motion:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+.btn-quick-motion:active {
+  transform: translateY(1px);
+}
+
+.btn-quick-motion.active {
+  background: rgba(16, 185, 129, 0.25);
+  color: #34d399;
+  border-color: #10b981;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
+}
+
+/* ==========================================================================
+   VOLUMETRIC GOD RAYS & DEMON SLAYER CINEMATIC POST-PROCESSING
+   ========================================================================== */
+.volumetric-god-rays {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: screen;
+  transition: opacity 0.8s ease;
+}
+
+.demon-slayer-particle-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.ufotable-rim-glow-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 6;
+  transition: box-shadow 0.8s ease;
+}
+

@@ -1,0 +1,5 @@
+/* Re-export Chetana Avatar styling for backward compatibility */
+@import './ChetanaAvatar.css';
+
+/* Aliases for legacy preeti selectors */
+.preeti-avatar-container { composes: chetana-avatar-container; }
